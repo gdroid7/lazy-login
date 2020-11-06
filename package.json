@@ -1,0 +1,32 @@
+{
+  "name": "lazy-login",
+  "version": "1.0.0",
+  "description": "To automate logins",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --no-deprecation ./index.js login",
+    "login": "node --no-deprecation ./index.js login",
+    "logout": "node --no-deprecation ./index.js logout",
+    "login-debug": "node --no-deprecation ./index.js login --with-head",
+    "logout-debug": "node --no-deprecation ./index.js logout --with-head"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdroid7/lazy-login.git"
+  },
+  "keywords": [
+    "lazy-login",
+    "puppeteer"
+  ],
+  "author": "gdroid7",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gdroid7/lazy-login/issues"
+  },
+  "homepage": "https://github.com/gdroid7/lazy-login#readme",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "puppeteer": "^5.4.1",
+    "puppeteer-select": "^1.0.3"
+  }
+}

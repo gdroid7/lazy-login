@@ -1,0 +1,27 @@
+{
+    "urls": {
+        "dashboard": "https://example.com"
+    },
+    "definitions": {
+        "username": {
+            "selector": "#username",
+            "text": "ABCD"
+        },
+        "password": {
+            "selector": "#password",
+            "text": "ABCD"
+        },
+        "login": {
+            "selector": "button:contains( Sign In )"
+        },
+        "logout": {
+            "selector": "button:contains( Sign Out )"
+        },
+        "submit": {
+            "selector": "button[type=\"submit\"]"
+        }
+    },
+    "directories": {
+        "screenshots": "screenshots"
+    }
+}
