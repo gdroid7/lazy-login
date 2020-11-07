@@ -54,9 +54,18 @@ let actionSelector = config.definitions.login.selector;
     await page.waitForTimeout(2000);
 
     console.log(`[x] Logging in...`)
-    await page.type(config.definitions.username.selector, config.definitions.username.text);
-    await page.type(config.definitions.password.selector, config.definitions.password.text);
-    await page.click(config.definitions.submit.selector)
+
+    try {
+        await page.type(config.definitions.username.selector, config.definitions.username.text);
+        await page.type(config.definitions.password.selector, config.definitions.password.text);
+        await page.click(config.definitions.submit.selector);
+
+    } catch (e) {
+        console.log(`[x] Error finding selectors, check config`);
+        console.log(`[x] ${e.message}`);
+        process.exit(0);
+    }
+
     await page.waitForNavigation({
         waitUntil: waitOptions
     });
