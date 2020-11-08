@@ -4,11 +4,11 @@
   "description": "To automate logins",
   "main": "index.js",
   "scripts": {
-    "test": "node --no-deprecation ./index.js login",
-    "login": "node --no-deprecation ./index.js login",
-    "logout": "node --no-deprecation ./index.js logout",
-    "login-debug": "node --no-deprecation ./index.js login --with-head",
-    "logout-debug": "node --no-deprecation ./index.js logout --with-head"
+    "test": "node --no-deprecation ./src/index.js login",
+    "login": "node --no-deprecation ./src/index.js login",
+    "logout": "node --no-deprecation ./src/index.js logout",
+    "login-debug": "node --no-deprecation ./src/index.js login --with-head",
+    "logout-debug": "node --no-deprecation ./src/index.js logout --with-head"
   },
   "repository": {
     "type": "git",
