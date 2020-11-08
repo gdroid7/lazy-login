@@ -6,12 +6,11 @@ const Helpers = require("./helpers");
 //Default Initializations
 const today = moment().format("YYYY-MM-DD");
 
-let screenshotDIRPath = config.directories.screenshots || "./screenshots";
-let dashboardURL = config.urls.dashboard || "https://ayopop.greythr.com";
-let waitOptions = ["networkidle0", "domcontentloaded", "networkidle2", "load"];
-let action = "login";
-let actionSelector = config.definitions.login.selector; //tried string interpolation didn't work
 let browser, page;
+let actionSelector;
+let action = "login";
+let waitFor = config.waitForInMilliseconds || 2000;
+let waitOptions = ["networkidle0", "domcontentloaded", "networkidle2", "load"];
 let browserConfig = {
     args: [
         '--disable-gpu',
@@ -31,7 +30,7 @@ let browserConfig = {
             throw new Error('Invalid number of parameters \n\nUsage : node index.js <login|logout>')
         }
 
-        action = args[2];
+        action = args[2] || 'login';
 
         if (!["login", "logout"].includes(action)) {
             throw new Error(`Invalid action parameter ${action} \n\nUsage : node index.js <login|logout>`);
@@ -52,7 +51,7 @@ let browserConfig = {
             browserConfig.headless = false;
         }
 
-        return await spawnBrowser();
+        return await spawnBrowser(browserConfig);
 
     } catch (e) {
         console.log(e.message);
@@ -61,10 +60,13 @@ let browserConfig = {
 
 })(process.argv);
 
+
 //Create and spawns browser
-async function spawnBrowser() {
+async function spawnBrowser(browserConfig) {
 
     console.log(`[x] Launching browser...`);
+
+    let dashboardURL = config.urls.dashboard || "https://example.com";
 
     browser = await puppeteer.launch(browserConfig);
     page = await browser.newPage();
@@ -86,15 +88,9 @@ async function spawnBrowser() {
 
     console.log(`[x] Waiting for 2 seconds...`);
 
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(waitFor);
 
-    await doLogin(page);
-
-    setTimeout(async () => {
-        await browser.close();
-    }, 5000);
-
-    return;
+    return await doLogin(page);
 }
 
 //Authenticates on webapp
@@ -117,7 +113,7 @@ async function doLogin(page) {
 
     console.log(`[x] Waiting for 2 seconds...`);
 
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(waitFor);
 
     return await doPunchIn(page);
 }
@@ -143,6 +139,8 @@ async function doPunchIn(page) {
 
 //Take screenshot
 async function takeScreenshot(page) {
+
+    let screenshotDIRPath = config.directories.screenshots || "./screenshots";
 
     await Helpers.makeOrIgnoreDIR(screenshotDIRPath);
 

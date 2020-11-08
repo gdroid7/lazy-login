@@ -1,20 +1,20 @@
 {
     "urls": {
-        "dashboard": "https://facebook.com"
+        "dashboard": "https://example.com"
     },
     "definitions": {
         "username": {
-            "selector": "#email",
-            "text": "test7"
+            "selector": "#username",
+            "text": "username"
         },
         "password": {
-            "selector": "#pass",
-            "text": "iamlazy"
+            "selector": "#password",
+            "text": "password"
         },
-        "punch-in": {
+        "login": {
             "selector": "button:contains( Sign In )"
         },
-        "punch-out": {
+        "logout": {
             "selector": "button:contains( Sign Out )"
         },
         "submit": {
@@ -23,5 +23,6 @@
     },
     "directories": {
         "screenshots": "screenshots"
-    }
+    },
+    "waitForInMilliseconds": 2000
 }
