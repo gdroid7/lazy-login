@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-chmod +x ./bin/login
-chmod +x ./bin/logout
+chmod +x ./bin/macos/login
+chmod +x ./bin/macos/logout
 npm install

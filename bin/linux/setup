@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
-chmod +x ./bin/login
-chmod +x ./bin/logout
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+cd "$DIR"
+chmod +x ./bin/linux/login
+chmod +x ./bin/linux/logout
 npm install

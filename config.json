@@ -1,20 +1,20 @@
 {
     "urls": {
-        "dashboard": "https://example.com"
+        "dashboard": "https://facebook.com"
     },
     "definitions": {
         "username": {
-            "selector": "#username",
-            "text": "ABCD"
+            "selector": "#email",
+            "text": "test7"
         },
         "password": {
-            "selector": "#password",
-            "text": "ABCD"
+            "selector": "#pass",
+            "text": "iamlazy"
         },
-        "login": {
+        "punch-in": {
             "selector": "button:contains( Sign In )"
         },
-        "logout": {
+        "punch-out": {
             "selector": "button:contains( Sign Out )"
         },
         "submit": {
