@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+chmod +x ./bin/login
+chmod +x ./bin/logout
+npm install
