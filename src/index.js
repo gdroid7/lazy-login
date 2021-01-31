@@ -38,6 +38,8 @@ let browserConfig = {
 
         console.log("\n\nProgress isn't made by early risers. It's made by lazy men trying to find easier ways to do something. \n");
 
+        console.log(`[x] Today is : ${moment().format("YYYY-mm-DD HH:mm:ss")}`);
+
         console.log(`[x] Initializing...`)
 
         if (args[2] == 'login') {
